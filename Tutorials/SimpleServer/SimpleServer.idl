@@ -1,0 +1,28 @@
+﻿// SimpleServer.idl: SimpleServer 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(SimpleServer.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+[object, uuid(59371D05-3025-4E52-AF88-977B219F0E97)]
+interface IMessageBox : IUnknown
+{
+	HRESULT Show([in]VARIANT szText);
+};
+
+[
+	uuid(4a02363c-cbc1-403a-905e-8ae116ccd454),
+	version(1.0),
+]
+library SimpleServerLib
+{
+	importlib("stdole2.tlb");
+	[uuid(3A68BEBC-3A60-46A5-8CA1-508C1406B73D)]
+	coclass MessageBoxClass
+	{
+		interface IMessageBox;
+	};
+};
+

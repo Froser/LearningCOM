@@ -1,0 +1,11 @@
+HKCR
+{
+    NoRemove CLSID
+    {
+        {3A68BEBC-3A60-46A5-8CA1-508C1406B73D} = s 'MessageBoxClass'
+        {
+            ProgID = s 'MessageBoxClass'
+            LocalServer32 = s '%MODULE%'
+        }
+    }
+}
