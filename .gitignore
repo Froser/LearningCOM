@@ -6,3 +6,5 @@
 /Tutorials/PersistStorage/PersistStorageClient/Debug
 /Tutorials/PersistStorage/.vs
 *.filters
+/Tutorials/SimpleMarshal/Debug
+/Tutorials/SimpleMarshal/.vs
