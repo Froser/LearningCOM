@@ -1,0 +1,28 @@
+﻿// SimpleIDispatch.idl: SimpleIDispatch 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(SimpleIDispatch.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+[object, dual, uuid(28F54187-9D26-46DE-9809-4CADCB1F84D7), oleautomation]
+interface IDMessage : IDispatch
+{
+	[id(1)] HRESULT Show([in]VARIANT szText);
+};
+
+[
+	uuid(8438c34c-853e-44e8-894b-d510cd356684),
+	version(1.0),
+]
+library SimpleIDispatchLib
+{
+	importlib("stdole2.tlb");
+	[uuid(89E0C43A-9351-4B79-A186-CA4A965E389D)]
+	coclass Message
+	{
+		interface IDMessage;
+	};
+};
+

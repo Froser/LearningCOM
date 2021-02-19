@@ -1,0 +1,15 @@
+HKCR
+{
+    NoRemove CLSID
+    {
+        {89E0C43A-9351-4B79-A186-CA4A965E389D} = s 'Message.App'
+        {
+            ProgID = s 'Message.App'
+            LocalServer32 = s '%MODULE%'
+        }
+    }
+    Message.App = s 'MessageApplication'
+    {
+        CLSID = s '{89E0C43A-9351-4B79-A186-CA4A965E389D}'
+    }
+}
