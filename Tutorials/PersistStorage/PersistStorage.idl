@@ -1,0 +1,31 @@
+﻿// PersistStorage.idl: PersistStorage 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(PersistStorage.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	uuid(dfa98c1f-2f81-4115-8dd5-692d91ee7342),
+	version(1.0),
+]
+library PersistStorageLib
+{
+	importlib("stdole2.tlb");
+
+	[object, uuid(8B82ACF5-2A77-4385-B254-4BC5C6F12FB5), oleautomation]
+	interface IMessage : IUnknown
+	{
+		HRESULT Print();
+		HRESULT Set(int);
+	};
+
+	[uuid(B8922344-0FD5-4630-A4D7-DD9C9321BBB1)]
+	coclass Message
+	{
+		interface IMessage;
+	};
+};
+
