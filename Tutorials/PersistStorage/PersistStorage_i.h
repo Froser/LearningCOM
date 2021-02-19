@@ -93,7 +93,7 @@ EXTERN_C const IID IID_IMessage;
     IMessage : public IUnknown
     {
     public:
-        virtual HRESULT STDMETHODCALLTYPE Print( void) = 0;
+        virtual int STDMETHODCALLTYPE Get( void) = 0;
         
         virtual HRESULT STDMETHODCALLTYPE Set( 
             int __MIDL__IMessage0000) = 0;
@@ -119,7 +119,7 @@ EXTERN_C const IID IID_IMessage;
         ULONG ( STDMETHODCALLTYPE *Release )( 
             IMessage * This);
         
-        HRESULT ( STDMETHODCALLTYPE *Print )( 
+        int ( STDMETHODCALLTYPE *Get )( 
             IMessage * This);
         
         HRESULT ( STDMETHODCALLTYPE *Set )( 
@@ -149,8 +149,8 @@ EXTERN_C const IID IID_IMessage;
     ( (This)->lpVtbl -> Release(This) ) 
 
 
-#define IMessage_Print(This)	\
-    ( (This)->lpVtbl -> Print(This) ) 
+#define IMessage_Get(This)	\
+    ( (This)->lpVtbl -> Get(This) ) 
 
 #define IMessage_Set(This,__MIDL__IMessage0000)	\
     ( (This)->lpVtbl -> Set(This,__MIDL__IMessage0000) ) 

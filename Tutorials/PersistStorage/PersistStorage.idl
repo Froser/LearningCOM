@@ -18,7 +18,7 @@ library PersistStorageLib
 	[object, uuid(8B82ACF5-2A77-4385-B254-4BC5C6F12FB5), oleautomation]
 	interface IMessage : IUnknown
 	{
-		HRESULT Print();
+		int Get();
 		HRESULT Set(int);
 	};
 

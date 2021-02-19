@@ -5,7 +5,7 @@ HKCR
         {B8922344-0FD5-4630-A4D7-DD9C9321BBB1} = s 'Message'
         {
             ProgID = s 'Message'
-            LocalServer32 = s '%MODULE%'
+            InProcServer32 = s '%MODULE%'
         }
     }
 }

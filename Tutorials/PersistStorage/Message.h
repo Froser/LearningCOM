@@ -21,7 +21,7 @@ class MessageImpl
 public:
     DECLARE_REGISTRY_RESOURCEID(IDR_PERSISTSTORAGE);
 
-    STDMETHODIMP Print() override;
+    STDMETHODIMP_(int) Get() override;
     STDMETHODIMP Set(int) override;
 
 private:

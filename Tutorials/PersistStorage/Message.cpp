@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "Message.h"
-#include <iostream>
 
 MessageImpl::MessageImpl()
     : m_number(0)
@@ -14,10 +13,9 @@ MessageImpl::~MessageImpl()
 
 }
 
-STDMETHODIMP_(STDMETHODIMP) MessageImpl::Print()
+STDMETHODIMP_(int) MessageImpl::Get()
 {
-    std::cout << m_number << std::endl;
-    return S_OK;
+    return m_number;
 }
 
 STDMETHODIMP MessageImpl::Set(int n)
@@ -61,6 +59,7 @@ STDMETHODIMP MessageImpl::InitNew(void)
 
 STDMETHODIMP MessageImpl::Save(LPSTREAM pStm, BOOL fClearDirty)
 {
+#if 0 // 优化前
     CLSID clsid;
     GetClassID(&clsid);
     /* 写CLSID */
@@ -72,6 +71,26 @@ STDMETHODIMP MessageImpl::Save(LPSTREAM pStm, BOOL fClearDirty)
         m_dirty = false;
 
     return S_OK;
+#elif 0 
+    CLSID clsid;
+    GetClassID(&clsid);
+    /* 写CLSID */
+    WriteClassStm(pStm, clsid);
+
+    /* 写数据 */
+    pStm->Write(&m_number, sizeof(m_number), NULL);
+    if (fClearDirty)
+        m_dirty = false;
+
+    return S_OK;
+#else // 优化后，不需要记录CLSID
+    /* 写数据 */
+    pStm->Write(&m_number, sizeof(m_number), NULL);
+    if (fClearDirty)
+        m_dirty = false;
+
+    return S_OK;
+#endif
 }
 
 STDMETHODIMP MessageImpl::Load(LPSTREAM pStm)
