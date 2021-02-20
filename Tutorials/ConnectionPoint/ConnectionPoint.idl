@@ -1,0 +1,34 @@
+﻿// ConnectionPoint.idl: ConnectionPoint 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(ConnectionPoint.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[object, uuid(8B82ACF5-2A77-4385-B254-4BC5C6F12FB5), oleautomation]
+interface IPrintDevice : IUnknown
+{
+	HRESULT Print();
+};
+
+[object, uuid(EEE2C0BB-B761-48FC-B2E2-768AF81CB668)]
+interface IPrintDeviceSink : IUnknown
+{
+	HRESULT OnPrint();
+};
+
+[
+	uuid(a723b01d-c627-487b-bec2-35fb402dee12),
+	version(1.0),
+]
+library ConnectionPointLib
+{
+	importlib("stdole2.tlb");
+	[uuid(36D4ADBC-B43F-491D-A609-19A54284AD80)]
+	coclass PrintDevice
+	{
+		interface IPrintDevice;
+	};
+};
