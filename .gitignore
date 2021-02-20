@@ -1,10 +1,5 @@
-/Tutorials/SimpleServer/Debug
-/Tutorials/SimpleServer/SimpleServerPS/DebugPS
-/Tutorials/SimpleServer/SimpleClient/Debug
-/Tutorials/SimpleServer/.vs
-/Tutorials/PersistStorage/Debug
-/Tutorials/PersistStorage/PersistStorageClient/Debug
-/Tutorials/PersistStorage/.vs
 *.filters
-/Tutorials/SimpleMarshal/Debug
-/Tutorials/SimpleMarshal/.vs
+.vs
+Debug
+DebugPS
+*.aps
