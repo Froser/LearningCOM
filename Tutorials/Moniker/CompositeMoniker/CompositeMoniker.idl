@@ -1,0 +1,35 @@
+﻿// CompositeMoniker.idl: CompositeMoniker 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(CompositeMoniker.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(1054728d-631c-44f3-9113-1184782fad63),
+	pointer_default(unique)
+]
+interface IMessage : IUnknown
+{
+	HRESULT Print([in] BSTR strMsg);
+};
+[
+	uuid(bef82564-0609-4850-9be1-6bdfb0ee2e55),
+	version(1.0),
+]
+library CompositeMonikerLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(60a4c02d-7c08-460f-af5e-70cc3e8a9ab7)
+	]
+	coclass Message
+	{
+		[default] interface IMessage;
+	};
+};
+
+import "shobjidl.idl";
