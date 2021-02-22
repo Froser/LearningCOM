@@ -1,0 +1,11 @@
+HKCR
+{
+    NoRemove CLSID
+    {
+        {3df50dd4-f6da-4553-84ff-74254b06642d} = s 'AsynchronousCallTestClass'
+        {
+            ProgID = s 'AsynchronousCallTestClass'
+            LocalServer32 = s '%MODULE%'
+        }
+    }
+}

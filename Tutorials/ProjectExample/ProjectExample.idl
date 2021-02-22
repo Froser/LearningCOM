@@ -1,0 +1,36 @@
+﻿// ProjectExample.idl: ProjectExample 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(ProjectExample.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(15cb0100-68c1-4094-b336-79f49c2b19c9),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMyObject : IDispatch
+{
+};
+[
+	uuid(151751b1-0829-48fd-91e6-b4327d5a0526),
+	version(1.0),
+]
+library ProjectExampleLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(33109cd3-5b5f-4500-aa51-d767ec06920e)
+	]
+	coclass MyObject
+	{
+		[default] interface IMyObject;
+	};
+};
+
+import "shobjidl.idl";

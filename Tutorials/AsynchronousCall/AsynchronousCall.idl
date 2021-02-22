@@ -1,0 +1,36 @@
+﻿// AsynchronousCall.idl: AsynchronousCall 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(AsynchronousCall.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(f39553d7-1cc7-4ca3-9295-5adbfe2b9146),
+	async_uuid(f39553d7-1cc7-4ca3-9295-5adbfe2b9147)
+]
+interface IMessage : IUnknown
+{
+	HRESULT GetNumber([out] int*);
+};
+[
+	uuid(62087271-2fc8-4011-bf3c-77f9d293205d),
+	version(1.0),
+]
+library AsynchronousCallLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(3df50dd4-f6da-4553-84ff-74254b06642d)
+	]
+	coclass Message
+	{
+		[default] interface IMessage;
+	};
+};
+
+import "shobjidl.idl";
+import "shobjidl.idl";
