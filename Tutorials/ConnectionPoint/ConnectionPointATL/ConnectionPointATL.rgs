@@ -1,0 +1,11 @@
+HKCR
+{
+    NoRemove CLSID
+    {
+        {36D4ADBC-B43F-491D-A609-19A54284AD81} = s 'PrintDeviceServer'
+        {
+            ProgID = s 'PrintDeviceServer'
+            LocalServer32 = s '%MODULE%'
+        }
+    }
+}

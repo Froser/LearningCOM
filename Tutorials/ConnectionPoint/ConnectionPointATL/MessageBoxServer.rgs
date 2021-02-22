@@ -1,0 +1,20 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {7a692afe-869e-4e9c-90b4-067dc2e6dee9} = s 'MessageBoxServer class'
+		{
+			ForceRemove Programmable
+			LocalServer32 = s '%MODULE%'
+			{
+				val ServerExecutable = s '%MODULE_RAW%'
+			}
+			TypeLib = s '{7d057893-29b8-4772-8e1e-bcdf395edfcb}'
+			Version = s '1.0'
+		}
+	}
+	ForceRemove MessageBoxServer = s 'MessageBoxServer class'
+	{
+		CLSID = s '{7a692afe-869e-4e9c-90b4-067dc2e6dee9}'
+	}
+}

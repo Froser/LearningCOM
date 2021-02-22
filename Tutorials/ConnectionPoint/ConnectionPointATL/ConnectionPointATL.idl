@@ -1,0 +1,47 @@
+﻿// ConnectionPointATL.idl: ConnectionPointATL 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(ConnectionPointATL.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(7c97e97b-ec62-4bda-a309-63090197114c),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IMessageBoxServer : IDispatch
+{
+	[id(1)] HRESULT ShowMessageBox([in] BSTR);
+};
+[
+	uuid(7d057893-29b8-4772-8e1e-bcdf395edfcb),
+	version(1.0),
+]
+library ConnectionPointATLLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(4f5f0124-42d4-49f2-8fe6-aa3c203de97c)
+	]
+	dispinterface _IMessageBoxServerEvents
+	{
+		properties:
+		methods:
+			[id(1)] HRESULT OnMessageBoxShowed();
+	};
+	[
+		uuid(7a692afe-869e-4e9c-90b4-067dc2e6dee9)
+	]
+	coclass MessageBoxServer
+	{
+		[default] interface IMessageBoxServer;
+		[default, source] dispinterface _IMessageBoxServerEvents;
+	};
+};
+
+import "shobjidl.idl";
