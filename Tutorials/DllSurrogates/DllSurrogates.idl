@@ -1,0 +1,36 @@
+﻿// DllSurrogates.idl: DllSurrogates 的 IDL 源
+//
+
+// 此文件将由 MIDL 工具处理以
+// 生成类型库(DllSurrogates.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(2c6c75bc-6969-4787-9318-11e874c1eb8c),
+	pointer_default(unique),
+	oleautomation
+]
+interface IMessage : IUnknown
+{
+	HRESULT Print([in] BSTR strMsg);
+};
+[
+	uuid(6c6592db-7ebb-4e30-badd-22d26305eca5),
+	version(1.0),
+]
+library DllSurrogatesLib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(064468a5-f878-4a10-8e2e-d70bdfd00b23)
+	]
+	coclass Message
+	{
+		[default] interface IMessage;
+	};
+};
+
+import "shobjidl.idl";

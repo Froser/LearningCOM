@@ -1,0 +1,23 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {064468a5-f878-4a10-8e2e-d70bdfd00b23} = s 'Message class'
+		{
+			val AppID = s '{86C9F294-BB2C-4cfa-96BE-9586EC043FC6}'
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Apartment'
+			}
+			TypeLib = s '{6c6592db-7ebb-4e30-badd-22d26305eca5}'
+			Version = s '1.0'
+		}
+	}
+	NoRemove AppID
+	{
+		NoRemove {86C9F294-BB2C-4cfa-96BE-9586EC043FC6} = s 'Message Application'
+		{
+			val DllSurrogate = s ''
+		}
+	}
+}
